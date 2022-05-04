@@ -9,7 +9,18 @@ async function viewAllDepartments() {
 }
 
 async function viewAllEmployees() {
-    const sql = "SELECT employee.id,employee.first_name,employee.last_name,department.name as department,role.salary as salary FROM ((employee join role on employee.role_id = role.id)join department on role.department_id=department.id) ;";
+    const sql = `SELECT
+	e1.id,
+	e1.first_name,
+    e1.last_name,
+    department.name as department,
+    role.salary,
+     CONCAT(e2.first_name, ' ', e2.last_name)as Manager
+	FROM employee  as e2
+	 right join employee as e1 on e1.manager_id = e2.id
+	join role on e1.role_id = role.id
+	join department on role.department_id = department.id
+;`;
     const [rows, field] = await db.promise().query(sql);
     return rows
 }
