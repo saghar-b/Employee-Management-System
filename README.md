@@ -28,8 +28,6 @@ Here are some guidelines to help you get started:
 7.  run the `npm run schema` in terminal
 8.  run the `npm run seeds` in terminal
 9.  run the `node index.js`in terminal
-10.  
-11. answer all the questions now and team.html file will creat.  
    
 ## Demo Video
 you can see demo video in the link below:  
